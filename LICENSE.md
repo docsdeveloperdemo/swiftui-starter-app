@@ -120,4 +120,4 @@ express Statement of Purpose.
     party to this document and has no duty or obligation with respect to
     this CC0 or use of the Work.
 
-https://creativecommons.org/publicdomain/zero/1.0/deed.eng
+https://creativecommons.org/publicdomain/zero/1.0/
