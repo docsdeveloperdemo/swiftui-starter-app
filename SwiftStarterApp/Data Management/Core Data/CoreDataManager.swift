@@ -1,9 +1,10 @@
+// SwiftUI Starter App
+// By Ryan McCaffery (mccaffers.com)
 //
-//  CoreData.swift
-//  starter
-//
-//  Created by Ryan McCaffery on 03/11/2023.
-//
+// This code is licensed under Creative Commons Zero (CC0)
+// You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
+// See LICENSE.md for more details
+// ---------------------------------------
 
 import Foundation
 

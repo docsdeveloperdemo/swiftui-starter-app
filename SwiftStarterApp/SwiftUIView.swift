@@ -1,9 +1,9 @@
 // SwiftUI Starter App
+// By Ryan McCaffery (mccaffers.com)
 //
-// Made by Ryan McCaffery
 // This code is licensed under Creative Commons Zero (CC0)
 // You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
-// See LICENSE.txt for details
+// See LICENSE.md for more details
 // ---------------------------------------
 
 import SwiftUI
