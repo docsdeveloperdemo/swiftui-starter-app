@@ -13,6 +13,6 @@ A number of SwiftUI views to accelerate iOS development
 * Components
   * TBD
 
-## License
+### Creative Commons Zero License.
 
-Creative Commons Zero License. You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission. See License.md for more details.
+You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission. See License.md for more details.
