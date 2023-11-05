@@ -1,9 +1,8 @@
+// SwiftUI Starter App
 //
-//  SwiftUIView.swift
-//  SwiftStarterApp
-//
-//  Created by Ryan McCaffery on 04/11/2023.
-//
+// Made by Ryan McCaffery
+// This code is licensed under Creative Commons Zero (CC0) - See LICENSE.txt for details
+// ---------------------------------------
 
 import SwiftUI
 
