@@ -1,4 +1,4 @@
-# Creative Commons Zero (CC0)
+Creative Commons Zero v1.0 Universal
 
  The person who associated a work with this deed has dedicated the work to the public domain by waiving all of his or her rights to the work worldwide under copyright law, including all related and neighboring rights, to the extent allowed by law.
 
