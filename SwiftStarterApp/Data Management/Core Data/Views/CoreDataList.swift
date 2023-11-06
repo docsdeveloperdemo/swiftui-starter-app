@@ -13,28 +13,28 @@ struct CoreDataList: View {
   @Environment(\.managedObjectContext) private var viewContext
   
   @FetchRequest(
-    sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+    sortDescriptors: [NSSortDescriptor(keyPath: \Leaderboard.score, ascending: true)],
     animation: .default)
-  private var items: FetchedResults<Item>
+  private var items: FetchedResults<Leaderboard>
   
   @State private var showDetails : Bool = false
   
   var body: some View {
     NavigationStack {
       List {
-        ForEach(items) { item in
-          if item.timestamp != nil {
+        ForEach(items, id:\.userID) { item in
             Button {
               showDetails = true
             } label: {
-              Text(item.timestamp!, formatter: itemFormatter)
+              Text(String(item.score))
             }
-          }
         }
         .onDelete(perform: deleteItems)
       }
       .listStyle(.plain)
+#if os(iOS)
       .navigationBarTitleDisplayMode(.inline)
+#endif
       .navigationDestination(isPresented:$showDetails, destination: {
         CoreDataDetailView()
       })
@@ -52,13 +52,12 @@ struct CoreDataList: View {
       }
       Text("Select an item")
     }
-    
   }
-  
   
   private func addItem() {
     withAnimation {
-      CoreDataManager.AddNew()
+      // add a new object
+      CoreDataManager.Commit()
     }
   }
   
@@ -69,15 +68,8 @@ struct CoreDataList: View {
   }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
-struct CoreDataList_Previews: PreviewProvider {
-    static var previews: some View {
-      CoreDataList().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
-}
+//struct CoreDataList_Previews: PreviewProvider {
+//    static var previews: some View {
+//      CoreDataList().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//    }
+//}

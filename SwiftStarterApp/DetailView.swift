@@ -14,7 +14,7 @@ struct DetailView: View {
     var body: some View {
       if let selectedItem {
         if selectedItem == "Core Data" {
-          CoreDataList()
+          CoreDataHomeView()
         }  else {
         NavigationLink(value: selectedItem) {
         

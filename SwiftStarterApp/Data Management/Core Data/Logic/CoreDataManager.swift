@@ -7,20 +7,27 @@
 // ---------------------------------------
 
 import Foundation
+import CoreData
 
 public class CoreDataManager {
   
-  public static func AddNew() {
-    let newItem = Item(context: PersistenceController.shared.container.viewContext)
-    newItem.timestamp = Date()
-    try! PersistenceController.shared.container.viewContext.save()
+  private static var viewContext : NSManagedObjectContext = PersistenceController.shared.container.viewContext
+  
+  public static func Commit() {
+    // Could validate objects here
+    try! viewContext.save()
   }
   
-  public static func Remove(_ item: Item) {
-    PersistenceController.shared.container.viewContext.delete(item)
+  public static func Count() -> Int {
+    var count = try! viewContext.count(for: NSFetchRequest(entityName: "Leaderboard"))
+    return count
+  }
+  
+  public static func Remove(_ item: NSManagedObject) {
+    viewContext.delete(item)
     
     do {
-      try PersistenceController.shared.container.viewContext.save()
+      try viewContext.save()
     } catch {
       // Replace this implementation with code to handle the error appropriately.
       // fatalError() causes the application to generate a crash log and terminate.
@@ -28,10 +35,6 @@ public class CoreDataManager {
       let nsError = error as NSError
       fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
     }
-  }
-  
-  public static func Commit() {
-    try! PersistenceController.shared.container.viewContext.save()
   }
   
 }
