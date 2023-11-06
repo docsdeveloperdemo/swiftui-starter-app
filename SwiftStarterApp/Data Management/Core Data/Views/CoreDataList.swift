@@ -24,22 +24,11 @@ struct CoreDataList: View {
       List {
         ForEach(items) { item in
           if item.timestamp != nil {
-            //          NavigationLink {
-            //
-            //            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-            //              .onAppear {
-            //                item.timestamp = Date()
-            //                CoreDataManager.Commit()
-            //              }
-            //
-            //          } label: {
-            //
-            //          }
-            Text(item.timestamp!, formatter: itemFormatter)
-              .onTapGesture {
-                showDetails = true
-              }
-            
+            Button {
+              showDetails = true
+            } label: {
+              Text(item.timestamp!, formatter: itemFormatter)
+            }
           }
         }
         .onDelete(perform: deleteItems)

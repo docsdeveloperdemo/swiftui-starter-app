@@ -43,6 +43,7 @@ struct HomeView: View {
             }
           }
           .navigationTitle(selectedFolder)
+          .navigationBarTitleDisplayMode(.inline)
         } else {
           Text("Choose a folder from the sidebar")
         }
