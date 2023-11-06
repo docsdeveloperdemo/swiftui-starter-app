@@ -14,7 +14,6 @@ public class CoreDataManager {
   private static var viewContext : NSManagedObjectContext = PersistenceController.shared.container.viewContext
   
   public static func Commit() {
-    // Could validate objects here
     try! viewContext.save()
   }
   
@@ -35,6 +34,10 @@ public class CoreDataManager {
       let nsError = error as NSError
       fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
     }
+  }
+  
+  public static func RemoveAll() {
+    
   }
   
 }

@@ -19,26 +19,12 @@ struct CoreDataHomeView: View {
       }
     }
     .onAppear {
-      checkAndLoadData()
+      _ = CoreDataLoader()
+      loading = false
     }
     
   }
-  
-  private func checkAndLoadData() {
-    if CoreDataManager.Count() == 0 {
-      loadDataIntoCoreData()
-    } else {
-      loading = false
-    }
-  }
-  
-  private func loadDataIntoCoreData() {
-    var item = Leaderboard(context: PersistenceController.shared.container.viewContext)
-    item.score = 10
-    item.userID = UUID()
-    CoreDataManager.Commit()
-    loading = false
-  }
+
 }
 
 struct CoreDataHomeView_Previews: PreviewProvider {
