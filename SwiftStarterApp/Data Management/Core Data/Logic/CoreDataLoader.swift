@@ -8,32 +8,41 @@
 import Foundation
 import CoreData
 
-// The CoreDataLoader loads a range of
-// entities into CoreData
+// The CoreDataLoader loads several
+// Core Data entries if they do not exist
 public class CoreDataLoader {
   
   public static func LoadData() {
-    if CoreDataManager.Count() == 0 {
+    if LeaderBoardDataManager.Count() == 0 {
       BuildUsers()
       BuildLeaderboard()
     }
   }
-  
-  private static func BuildLeaderboard() {
-    let leaderboardObject = Leaderboard(context: PersistenceController.shared.container.viewContext)
-    leaderboardObject.score = 10
-    leaderboardObject.userID = UUID()
-    CoreDataManager.Commit()
-  }
-  
-  
+    
   private static func BuildUsers() {
-    let userObject = Users(context: PersistenceController.shared.container.viewContext)
+    var userObject = Users(context: PersistenceController.shared.viewContext)
     userObject.userID = UUID()
     userObject.username = "Joe"
     userObject.password = "P@ssword1"
     CoreDataManager.Commit()
+    
+    userObject = Users(context: PersistenceController.shared.viewContext)
+    userObject.userID = UUID()
+    userObject.username = "Bob"
+    userObject.password = "Bob"
+    CoreDataManager.Commit()
   }
   
+  private static func BuildLeaderboard() {
+    
+    
+    if let firstUser = UserDataManager.Query(),
+       let uuidValue = UUID(uuidString: firstUser.userID.uuidString) {
+      let leaderboardObject = Leaderboard(context: PersistenceController.shared.viewContext)
+      leaderboardObject.score = 10
+      leaderboardObject.userID = uuidValue
+      CoreDataManager.Commit()
+    }
+  }
   
 }

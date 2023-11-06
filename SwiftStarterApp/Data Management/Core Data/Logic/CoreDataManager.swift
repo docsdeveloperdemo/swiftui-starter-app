@@ -13,15 +13,12 @@ import CoreData
 // the SwiftUI Views and the CoreData database
 public class CoreDataManager {
   
-  private static var viewContext : NSManagedObjectContext = PersistenceController.shared.container.viewContext
+  // Reuse the static view context
+  // Note - Make sure you always read from the static `PersistenceController.shared.container` object, not `PersistenceController().container`
+  fileprivate static var viewContext : NSManagedObjectContext = PersistenceController.shared.viewContext
   
   public static func Commit() {
     try! viewContext.save()
-  }
-  
-  public static func Count() -> Int {
-    var count = try! viewContext.count(for: NSFetchRequest(entityName: "Leaderboard"))
-    return count
   }
   
   public static func Remove(_ item: NSManagedObject) {
@@ -38,9 +35,27 @@ public class CoreDataManager {
     }
   }
   
-  public static func RemoveAll() {
+  public static func DeleteAll() {
     
   }
   
 }
+
+public class LeaderBoardDataManager: CoreDataManager {
+  public static func Count() -> Int {
+    let count = try! viewContext.count(for: NSFetchRequest(entityName: "Leaderboard"))
+    return count
+  }
+}
+
+public class UserDataManager: CoreDataManager {
+    
+  public static func Query() -> Users? {
+    let fetchRequest = NSFetchRequest<Users>(entityName: "Users")
+    fetchRequest.resultType = .managedObjectResultType
+    let objectToReturn = try? viewContext.fetch(fetchRequest).first
+    return objectToReturn
+  }
+}
+
 
