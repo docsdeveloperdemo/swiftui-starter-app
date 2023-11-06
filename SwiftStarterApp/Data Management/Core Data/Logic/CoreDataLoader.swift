@@ -8,6 +8,8 @@
 import Foundation
 import CoreData
 
+// The CoreDataLoader loads a range of
+// entities into CoreData
 public class CoreDataLoader {
   
   public static func LoadData() {
@@ -18,7 +20,7 @@ public class CoreDataLoader {
   }
   
   private static func BuildLeaderboard() {
-    var leaderboardObject = Leaderboard(context: PersistenceController.shared.container.viewContext)
+    let leaderboardObject = Leaderboard(context: PersistenceController.shared.container.viewContext)
     leaderboardObject.score = 10
     leaderboardObject.userID = UUID()
     CoreDataManager.Commit()
@@ -26,7 +28,7 @@ public class CoreDataLoader {
   
   
   private static func BuildUsers() {
-    var userObject = Users(context: PersistenceController.shared.container.viewContext)
+    let userObject = Users(context: PersistenceController.shared.container.viewContext)
     userObject.userID = UUID()
     userObject.username = "Joe"
     userObject.password = "P@ssword1"

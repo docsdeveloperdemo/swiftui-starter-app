@@ -9,6 +9,8 @@
 import Foundation
 import CoreData
 
+// The CoreDataManager acts as an interface between
+// the SwiftUI Views and the CoreData database
 public class CoreDataManager {
   
   private static var viewContext : NSManagedObjectContext = PersistenceController.shared.container.viewContext

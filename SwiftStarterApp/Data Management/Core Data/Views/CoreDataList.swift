@@ -10,6 +10,7 @@ import SwiftUI
 import CoreData
 
 struct CoreDataList: View {
+  
   @Environment(\.managedObjectContext) private var viewContext
   
   @FetchRequest(

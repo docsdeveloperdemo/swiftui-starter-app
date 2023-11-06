@@ -19,7 +19,7 @@ struct CoreDataHomeView: View {
       }
     }
     .onAppear {
-      _ = CoreDataLoader()
+      CoreDataLoader.LoadData()
       loading = false
     }
     
