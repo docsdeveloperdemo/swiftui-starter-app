@@ -14,7 +14,7 @@ struct SwiftStarterAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-          SwiftUIView()
+          HomeView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

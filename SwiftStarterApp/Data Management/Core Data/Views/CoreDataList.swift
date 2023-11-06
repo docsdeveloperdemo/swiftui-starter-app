@@ -9,7 +9,7 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct CoreDataList: View {
   @Environment(\.managedObjectContext) private var viewContext
   
   @FetchRequest(
@@ -17,26 +17,38 @@ struct ContentView: View {
     animation: .default)
   private var items: FetchedResults<Item>
   
+  @State private var showDetails : Bool = false
+  
   var body: some View {
-    NavigationView {
+    NavigationStack {
       List {
         ForEach(items) { item in
           if item.timestamp != nil {
-            NavigationLink {
-              
-              Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                .onAppear {
-                  
-                  CoreDataManager().edit(item)
-                }
-              
-            } label: {
-              Text(item.timestamp!, formatter: itemFormatter)
-            }
+            //          NavigationLink {
+            //
+            //            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+            //              .onAppear {
+            //                item.timestamp = Date()
+            //                CoreDataManager.Commit()
+            //              }
+            //
+            //          } label: {
+            //
+            //          }
+            Text(item.timestamp!, formatter: itemFormatter)
+              .onTapGesture {
+                showDetails = true
+              }
+            
           }
         }
         .onDelete(perform: deleteItems)
       }
+      .listStyle(.plain)
+      .navigationBarTitleDisplayMode(.inline)
+      .navigationDestination(isPresented:$showDetails, destination: {
+        CoreDataDetailView()
+      })
       .toolbar {
 #if os(iOS)
         ToolbarItem(placement: .navigationBarTrailing) {
@@ -51,18 +63,19 @@ struct ContentView: View {
       }
       Text("Select an item")
     }
+    
   }
   
   
   private func addItem() {
     withAnimation {
-      CoreDataManager().addNew()
+      CoreDataManager.AddNew()
     }
   }
   
   private func deleteItems(offsets: IndexSet) {
     withAnimation {
-      offsets.map { items[$0] }.forEach(CoreDataManager().remove)
+      offsets.map { items[$0] }.forEach(CoreDataManager.Remove)
     }
   }
 }
@@ -74,8 +87,8 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-struct ContentView_Previews: PreviewProvider {
+struct CoreDataList_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+      CoreDataList().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
