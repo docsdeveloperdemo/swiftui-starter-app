@@ -9,7 +9,7 @@
 import SwiftUI
 
 @main
-struct SwiftStarterAppApp: App {
+struct SwiftStarterApp: App {
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
