@@ -13,17 +13,21 @@ struct CoreDataList: View {
   
   @Environment(\.managedObjectContext) private var viewContext
   
-  @FetchRequest(
-    sortDescriptors: [NSSortDescriptor(keyPath: \Leaderboard.score, ascending: true)],
-    animation: .default)
-  private var items: FetchedResults<Leaderboard>
+//  @FetchRequest(
+//    sortDescriptors: [NSSortDescriptor(keyPath: \Leaderboard.score, ascending: true)],
+//    animation: .default)
+//  private var items: FetchedResults<Leaderboard>
+  
+  @StateObject var leaderboardStorage: CoreDataManager_Leaderboard = CoreDataManager_Leaderboard.shared
+  
+//  @StateObject var loading =
   
   @State private var showDetails : Bool = false
   
   var body: some View {
     NavigationStack {
       List {
-        ForEach(items, id:\.userID) { item in
+        ForEach(leaderboardStorage.items, id:\.userID) { item in
           Button {
             showDetails = true
           } label: {
@@ -59,7 +63,7 @@ struct CoreDataList: View {
   }
   
   private func deleteItems(offsets: IndexSet) {
-    offsets.map { items[$0] }.forEach(CoreDataManager.Remove)
+//    offsets.map { items[$0] }.forEach(CoreDataManager.Remove)
   }
 }
 

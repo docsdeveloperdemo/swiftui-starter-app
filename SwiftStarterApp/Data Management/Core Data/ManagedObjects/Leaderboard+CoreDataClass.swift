@@ -11,5 +11,7 @@ import CoreData
 
 @objc(Leaderboard)
 public class Leaderboard: NSManagedObject {
+  
+
 
 }

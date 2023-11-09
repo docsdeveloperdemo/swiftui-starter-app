@@ -1,9 +1,10 @@
+// SwiftUI Starter App
+// By Ryan McCaffery (mccaffers.com)
 //
-//  CoreDataLoader.swift
-//  SwiftStarterApp
-//
-//  Created by Ryan McCaffery on 06/11/2023.
-//
+// This code is licensed under Creative Commons Zero (CC0)
+// You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
+// See LICENSE.md for more details
+// ---------------------------------------
 
 import Foundation
 import CoreData
@@ -13,7 +14,7 @@ import CoreData
 public class CoreDataLoader {
   
   public static func LoadData() {
-    if CoreDataManager_Leaderboard.Count() == 0 {
+    if CoreDataManager_Leaderboard.shared.Count() == 0 {
       BuildUsers()
       BuildLeaderboard()
     }
@@ -35,8 +36,7 @@ public class CoreDataLoader {
   
   private static func BuildLeaderboard() {
     
-    
-    if let firstUser = CoreDataManager_Users.Query(),
+    if let firstUser = CoreDataManager_Users.shared.Query(),
        let uuidValue = UUID(uuidString: firstUser.userID.uuidString) {
       let leaderboardObject = Leaderboard(context: PersistenceController.shared.viewContext)
       leaderboardObject.score = 10
