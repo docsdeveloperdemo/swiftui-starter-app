@@ -35,8 +35,6 @@ public class CoreDataManager {
     }
   }
   
-
-  
 }
 
 public class LeaderBoardDataManager: CoreDataManager {

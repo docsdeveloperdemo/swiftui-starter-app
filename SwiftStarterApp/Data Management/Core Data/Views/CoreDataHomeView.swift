@@ -52,6 +52,8 @@ struct CoreDataHomeView: View {
       .navigationDestination(isPresented: $showLeaderboard, destination: {
         CoreDataList()
       })
+      .navigationTitle("Core Data")
+      
     }
   }
 
