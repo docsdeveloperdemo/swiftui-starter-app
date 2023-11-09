@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9416CA6B2AFCCB60002D49E6 /* DeviceUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9416CA6A2AFCCB60002D49E6 /* DeviceUtilities.swift */; };
 		946464812AF7758B0042EE31 /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946464802AF7758B0042EE31 /* RealmDataManager.swift */; };
 		947609F82AF62F1C001C9A67 /* SwiftStarterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947609F72AF62F1C001C9A67 /* SwiftStarterApp.swift */; };
 		947609FA2AF62F1C001C9A67 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947609F92AF62F1C001C9A67 /* Persistence.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9416CA6A2AFCCB60002D49E6 /* DeviceUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUtilities.swift; sourceTree = "<group>"; };
 		946464802AF7758B0042EE31 /* RealmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
 		946464822AF7777B0042EE31 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		946464832AF777850042EE31 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
@@ -81,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9416CA692AFCCB48002D49E6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9416CA6A2AFCCB60002D49E6 /* DeviceUtilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		947609EB2AF62F1C001C9A67 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +114,7 @@
 		947609F62AF62F1C001C9A67 /* SwiftStarterApp */ = {
 			isa = PBXGroup;
 			children = (
+				9416CA692AFCCB48002D49E6 /* Utilities */,
 				94760A0B2AF62F50001C9A67 /* Data Management */,
 				947609F72AF62F1C001C9A67 /* SwiftStarterApp.swift */,
 				94760A0F2AF63037001C9A67 /* HomeView.swift */,
@@ -297,6 +308,7 @@
 				94E275682AF8E4A1003C3C05 /* DetailView.swift in Sources */,
 				94A7E45F2AF902EB00D23515 /* CoreDataHomeView.swift in Sources */,
 				947609FA2AF62F1C001C9A67 /* Persistence.swift in Sources */,
+				9416CA6B2AFCCB60002D49E6 /* DeviceUtilities.swift in Sources */,
 				94760A102AF63037001C9A67 /* HomeView.swift in Sources */,
 				94BFA4E82AF94C77004FEE4E /* CoreDataLoader.swift in Sources */,
 				947609FF2AF62F1C001C9A67 /* CoreDataList.swift in Sources */,

@@ -9,20 +9,50 @@ import SwiftUI
 
 struct CoreDataHomeView: View {
   @State var loading = true
+  @State var showLeaderboard = false
   
   var body: some View {
-    VStack {
-      if loading {
-        ProgressView()
-      } else {
-        CoreDataList()
+    NavigationStack {
+      VStack(spacing:20) {
+        HStack {
+          Button {
+            CoreDataLoader.LoadData()
+          } label: {
+            Text("Load Data")
+          }
+          .frame(maxWidth: .infinity)
+          
+          Button {
+            //
+          } label: {
+            Text("Delete Data")
+          }
+          .frame(maxWidth: .infinity)
+        }
+        .padding(.top, 10)
+        
+        HStack {
+          Button {
+            showLeaderboard = true
+          } label: {
+            Text("View Leaderboard")
+          }
+          .frame(maxWidth: .infinity)
+          
+          Button {
+            //
+          } label: {
+            Text("View Users")
+          }
+          .frame(maxWidth: .infinity)
+        }
+        Spacer()
+        
       }
+      .navigationDestination(isPresented: $showLeaderboard, destination: {
+        CoreDataList()
+      })
     }
-    .onAppear {
-      CoreDataLoader.LoadData()
-      loading = false
-    }
-    
   }
 
 }

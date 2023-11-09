@@ -16,6 +16,9 @@ struct SwiftStarterApp: App {
         WindowGroup {
           HomeView()
             .environment(\.managedObjectContext, persistenceController)
+            .onAppear {
+              print("Running on " + DeviceUtilities.deviceType().rawValue)
+            }
         }
     }
 }

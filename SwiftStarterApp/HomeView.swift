@@ -10,7 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-  @State private var selectedFolder: String?
+  @State private var selectedFolder: String? = "Data Management"
   @State private var selectedItem: String?
   
   @State private var folders = [
@@ -33,6 +33,7 @@ struct HomeView: View {
           }
         }
         .navigationTitle("Swift Starter App")
+        .navigationSplitViewColumnWidth(min: 150, ideal: 200, max: 200)
       } content: {
         if let selectedFolder {
           List(selection: $selectedItem) {
@@ -42,12 +43,11 @@ struct HomeView: View {
               }
             }
           }
+          .navigationSplitViewColumnWidth(min: 150, ideal: 200, max: 200)
           .navigationTitle(selectedFolder)
 #if os(iOS)
           .navigationBarTitleDisplayMode(.inline)
 #endif
-        } else {
-          Text("Choose a folder from the sidebar")
         }
       } detail: {
         DetailView(selectedItem: selectedItem)

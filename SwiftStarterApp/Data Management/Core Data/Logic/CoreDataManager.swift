@@ -35,9 +35,7 @@ public class CoreDataManager {
     }
   }
   
-  public static func DeleteAll() {
-    
-  }
+
   
 }
 
@@ -45,6 +43,17 @@ public class LeaderBoardDataManager: CoreDataManager {
   public static func Count() -> Int {
     let count = try! viewContext.count(for: NSFetchRequest(entityName: "Leaderboard"))
     return count
+  }
+  
+  public static func DeleteAll() {
+    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Leaderboard")
+    let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+    do {
+      try PersistenceController.shared.viewContext.persistentStoreCoordinator?.execute(deleteRequest, with: viewContext)
+    } catch let error as NSError {
+        // TODO: handle the error
+    }
   }
 }
 
@@ -56,6 +65,18 @@ public class UserDataManager: CoreDataManager {
     let objectToReturn = try? viewContext.fetch(fetchRequest).first
     return objectToReturn
   }
+  
+  public static func DeleteAll() {
+    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Users")
+    let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+    do {
+      try PersistenceController.shared.viewContext.persistentStoreCoordinator?.execute(deleteRequest, with: viewContext)
+    } catch let error as NSError {
+        // TODO: handle the error
+    }
+  }
+
 }
 
 
