@@ -13,7 +13,7 @@ import CoreData
 public class CoreDataLoader {
   
   public static func LoadData() {
-    if LeaderBoardDataManager.Count() == 0 {
+    if CoreDataManager_Leaderboard.Count() == 0 {
       BuildUsers()
       BuildLeaderboard()
     }
@@ -36,7 +36,7 @@ public class CoreDataLoader {
   private static func BuildLeaderboard() {
     
     
-    if let firstUser = UserDataManager.Query(),
+    if let firstUser = CoreDataManager_Users.Query(),
        let uuidValue = UUID(uuidString: firstUser.userID.uuidString) {
       let leaderboardObject = Leaderboard(context: PersistenceController.shared.viewContext)
       leaderboardObject.score = 10

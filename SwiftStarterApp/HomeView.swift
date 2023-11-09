@@ -19,7 +19,7 @@ struct HomeView: View {
           "Realm"
       ],
       "Components": [
-          "Table"
+      
       ]
   ]
   

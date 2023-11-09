@@ -24,21 +24,21 @@ struct CoreDataList: View {
     NavigationStack {
       List {
         ForEach(items, id:\.userID) { item in
-            Button {
-              showDetails = true
-            } label: {
-              Text(String(item.score))
-            }
+          Button {
+            showDetails = true
+          } label: {
+            Text(String(item.score))
+          }
         }
         .onDelete(perform: deleteItems)
       }
       .listStyle(.plain)
-#if os(iOS)
-      .navigationBarTitleDisplayMode(.inline)
-#endif
       .navigationDestination(isPresented:$showDetails, destination: {
         CoreDataDetailView()
       })
+#if os(iOS)
+      .navigationBarTitleDisplayMode(.inline)
+#endif
       .toolbar {
 #if os(iOS)
         ToolbarItem(placement: .navigationBarTrailing) {
@@ -55,23 +55,17 @@ struct CoreDataList: View {
   }
   
   private func addItem() {
-    withAnimation {
-      // add a new object
-      CoreDataManager.Commit()
-      
-    }
+    CoreDataManager.Commit()
   }
   
   private func deleteItems(offsets: IndexSet) {
-    withAnimation {
-      offsets.map { items[$0] }.forEach(CoreDataManager.Remove)
-    }
+    offsets.map { items[$0] }.forEach(CoreDataManager.Remove)
   }
 }
 
 struct CoreDataList_Previews: PreviewProvider {
-    static var previews: some View {
-      CoreDataList()
-        .environment(\.managedObjectContext, PersistenceController.shared.viewContext)
-    }
+  static var previews: some View {
+    CoreDataList()
+      .environment(\.managedObjectContext, PersistenceController.shared.viewContext)
+  }
 }

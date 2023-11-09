@@ -19,6 +19,10 @@
 		94760A052AF62F1D001C9A67 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94760A042AF62F1D001C9A67 /* Preview Assets.xcassets */; };
 		94760A0E2AF62F6B001C9A67 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94760A0D2AF62F6B001C9A67 /* CoreDataManager.swift */; };
 		94760A102AF63037001C9A67 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94760A0F2AF63037001C9A67 /* HomeView.swift */; };
+		9489F5462AFCE7D9006F4D0E /* CoreDataActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9489F5452AFCE7D9006F4D0E /* CoreDataActionsView.swift */; };
+		9489F5482AFCE87E006F4D0E /* CoreDataStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9489F5472AFCE87E006F4D0E /* CoreDataStatsView.swift */; };
+		9489F54A2AFCE8E5006F4D0E /* CoreDataManager_Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9489F5492AFCE8E5006F4D0E /* CoreDataManager_Leaderboard.swift */; };
+		9489F54D2AFCE95F006F4D0E /* CoreDataManager_Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9489F54C2AFCE95F006F4D0E /* CoreDataManager_Users.swift */; };
 		94A7E45F2AF902EB00D23515 /* CoreDataHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7E45E2AF902EB00D23515 /* CoreDataHomeView.swift */; };
 		94A7E4602AF907DA00D23515 /* Leaderboard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7E45C2AF8FF5500D23515 /* Leaderboard+CoreDataProperties.swift */; };
 		94A7E4612AF907DF00D23515 /* Users+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A7E4592AF8FF5500D23515 /* Users+CoreDataClass.swift */; };
@@ -55,6 +59,10 @@
 		94760A042AF62F1D001C9A67 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		94760A0D2AF62F6B001C9A67 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		94760A0F2AF63037001C9A67 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9489F5452AFCE7D9006F4D0E /* CoreDataActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataActionsView.swift; sourceTree = "<group>"; };
+		9489F5472AFCE87E006F4D0E /* CoreDataStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStatsView.swift; sourceTree = "<group>"; };
+		9489F5492AFCE8E5006F4D0E /* CoreDataManager_Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager_Leaderboard.swift; sourceTree = "<group>"; };
+		9489F54C2AFCE95F006F4D0E /* CoreDataManager_Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager_Users.swift; sourceTree = "<group>"; };
 		94A7E4592AF8FF5500D23515 /* Users+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataClass.swift"; sourceTree = "<group>"; };
 		94A7E45A2AF8FF5500D23515 /* Users+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		94A7E45B2AF8FF5500D23515 /* Leaderboard+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Leaderboard+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -120,9 +128,10 @@
 			children = (
 				9416CA692AFCCB48002D49E6 /* Utilities */,
 				94760A0B2AF62F50001C9A67 /* Data Management */,
-				947609F72AF62F1C001C9A67 /* SwiftStarterApp.swift */,
+				9489F5432AFCE73C006F4D0E /* Componets */,
 				94760A0F2AF63037001C9A67 /* HomeView.swift */,
 				94E275672AF8E4A1003C3C05 /* DetailView.swift */,
+				947609F72AF62F1C001C9A67 /* SwiftStarterApp.swift */,
 				94760A022AF62F1D001C9A67 /* SwiftStarterApp.entitlements */,
 				947609FB2AF62F1C001C9A67 /* SwiftStarterApp.xcdatamodeld */,
 				94760A002AF62F1D001C9A67 /* Assets.xcassets */,
@@ -158,6 +167,33 @@
 			path = "Core Data";
 			sourceTree = "<group>";
 		};
+		9489F5432AFCE73C006F4D0E /* Componets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Componets;
+			sourceTree = "<group>";
+		};
+		9489F5442AFCE7C3006F4D0E /* CoreDataHomeViews */ = {
+			isa = PBXGroup;
+			children = (
+				94A7E45E2AF902EB00D23515 /* CoreDataHomeView.swift */,
+				9489F5452AFCE7D9006F4D0E /* CoreDataActionsView.swift */,
+				9489F5472AFCE87E006F4D0E /* CoreDataStatsView.swift */,
+			);
+			path = CoreDataHomeViews;
+			sourceTree = "<group>";
+		};
+		9489F54B2AFCE94B006F4D0E /* CoreDataManagers */ = {
+			isa = PBXGroup;
+			children = (
+				94760A0D2AF62F6B001C9A67 /* CoreDataManager.swift */,
+				9489F5492AFCE8E5006F4D0E /* CoreDataManager_Leaderboard.swift */,
+				9489F54C2AFCE95F006F4D0E /* CoreDataManager_Users.swift */,
+			);
+			path = CoreDataManagers;
+			sourceTree = "<group>";
+		};
 		94A7E45D2AF900D200D23515 /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,9 +216,9 @@
 		94E275632AF8C5FE003C3C05 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9489F5442AFCE7C3006F4D0E /* CoreDataHomeViews */,
 				947609FE2AF62F1C001C9A67 /* CoreDataList.swift */,
 				94E275652AF8C61D003C3C05 /* CoreDataDetailView.swift */,
-				94A7E45E2AF902EB00D23515 /* CoreDataHomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,8 +226,8 @@
 		94E275642AF8C603003C3C05 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				9489F54B2AFCE94B006F4D0E /* CoreDataManagers */,
 				947609F92AF62F1C001C9A67 /* Persistence.swift */,
-				94760A0D2AF62F6B001C9A67 /* CoreDataManager.swift */,
 				94BFA4E72AF94C77004FEE4E /* CoreDataLoader.swift */,
 			);
 			path = Logic;
@@ -318,13 +354,17 @@
 				94A7E4622AF907DF00D23515 /* Users+CoreDataProperties.swift in Sources */,
 				94E275682AF8E4A1003C3C05 /* DetailView.swift in Sources */,
 				94A7E45F2AF902EB00D23515 /* CoreDataHomeView.swift in Sources */,
+				9489F54A2AFCE8E5006F4D0E /* CoreDataManager_Leaderboard.swift in Sources */,
 				947609FA2AF62F1C001C9A67 /* Persistence.swift in Sources */,
+				9489F5482AFCE87E006F4D0E /* CoreDataStatsView.swift in Sources */,
+				9489F54D2AFCE95F006F4D0E /* CoreDataManager_Users.swift in Sources */,
 				9416CA6B2AFCCB60002D49E6 /* DeviceUtilities.swift in Sources */,
 				94760A102AF63037001C9A67 /* HomeView.swift in Sources */,
 				94BFA4E82AF94C77004FEE4E /* CoreDataLoader.swift in Sources */,
 				947609FF2AF62F1C001C9A67 /* CoreDataList.swift in Sources */,
 				94A7E4632AF907DF00D23515 /* Leaderboard+CoreDataClass.swift in Sources */,
 				94E275662AF8C61D003C3C05 /* CoreDataDetailView.swift in Sources */,
+				9489F5462AFCE7D9006F4D0E /* CoreDataActionsView.swift in Sources */,
 				946464812AF7758B0042EE31 /* RealmDataManager.swift in Sources */,
 				94760A0E2AF62F6B001C9A67 /* CoreDataManager.swift in Sources */,
 				947609FD2AF62F1C001C9A67 /* SwiftStarterApp.xcdatamodeld in Sources */,
