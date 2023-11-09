@@ -1,7 +1,7 @@
 #  SwiftUI Starter App
 
 > [!NOTE]  
-> This is a SwiftUI Starter codebase that shows how to do a lot of the basics, and connect them all together. I'm by no means an expert, an enthusiast! I can't say I've adopted all the best practice, but I will work to maintain the codebase and ensure it runs! I hope it provides value for you! Feel free to create a PR or Issue if there is something you'd like to change or include! - Ryan (@mccaffers)
+> I'm building up this repository to contain a SwiftUI Starter codebase that shows how to do a lot of the basics, and connect features together. I hope it provides value for you!
 
 This repository contains a number of SwiftUI views to accelerate iOS and macOS development. 
 
@@ -9,9 +9,8 @@ This repository contains a number of SwiftUI views to accelerate iOS and macOS d
 * Multiple databases
   * Core Data
   * RealmDB
-  * Firebase
 * Components
-  * TBD
+  * Table
 
 ### Creative Commons License (CC-0)
 
