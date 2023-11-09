@@ -18,7 +18,10 @@ struct PersistenceController {
   init(inMemory: Bool = false) {
     container = NSPersistentContainer(name: "SwiftStarterApp")
     
-    if inMemory {
+    // XCODE uses an environment variable to indicate whether
+    // a view is in the preview canvas, and we it (XCODE_RUNNING_FOR_PREVIEWS)
+    // here to persist the store to memory only
+    if inMemory ||  ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
       container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
     }
     

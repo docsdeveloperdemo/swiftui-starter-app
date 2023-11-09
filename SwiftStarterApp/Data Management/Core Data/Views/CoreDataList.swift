@@ -51,7 +51,6 @@ struct CoreDataList: View {
           }
         }
       }
-      Text("Select an item")
     }
   }
   
@@ -59,6 +58,7 @@ struct CoreDataList: View {
     withAnimation {
       // add a new object
       CoreDataManager.Commit()
+      
     }
   }
   
@@ -69,8 +69,9 @@ struct CoreDataList: View {
   }
 }
 
-//struct CoreDataList_Previews: PreviewProvider {
-//    static var previews: some View {
-//      CoreDataList().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//    }
-//}
+struct CoreDataList_Previews: PreviewProvider {
+    static var previews: some View {
+      CoreDataList()
+        .environment(\.managedObjectContext, PersistenceController.shared.viewContext)
+    }
+}
