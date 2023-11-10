@@ -58,7 +58,7 @@ struct HomeView: View {
         }
         Text("By Ryan (mccaffers.com)")
       }
-      .navigationTitle("Swift Starter App")
+      .navigationTitle(navigationTitle)
       .padding(.top, framePadding)
 #if os(iOS)
       .toolbarBackground(.visible, for: .navigationBar)
@@ -79,13 +79,15 @@ struct HomeView: View {
           DetailView(selectedItem: selectedItem)
         }
       }
+      
 #if os(iOS)
       .toolbarBackground(.visible, for: .navigationBar)
       .toolbarBackground(.red, for: .navigationBar)
       .navigationBarTitleDisplayMode(.inline)
+      
 #endif
     }
-    
+    .accentColor(.white)
   }
 }
 
@@ -94,3 +96,4 @@ struct SwiftUIView_Previews: PreviewProvider {
       HomeView()
     }
 }
+

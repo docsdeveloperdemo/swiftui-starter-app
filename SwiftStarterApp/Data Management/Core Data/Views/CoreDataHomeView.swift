@@ -19,6 +19,8 @@ struct CoreDataHomeView: View {
       
       CoreDataStatsView()
       
+      Divider()
+      
       Text("Options")
         .bold()
         .frame(maxWidth: .infinity, alignment:.leading)
@@ -28,6 +30,7 @@ struct CoreDataHomeView: View {
       Spacer()
       
     }
+    .padding(.top, 10)
     .padding(.horizontal, 15)
     .navigationTitle("Core Data")
 

@@ -28,6 +28,7 @@ struct ContentView: View {
       return CGFloat(0)
     }
   }
+  
     
   @Binding var selectedItem: String?
   @Binding var selectedFolder: String?
@@ -45,6 +46,7 @@ struct ContentView: View {
     }
     .listStyle(.insetGrouped)
     .padding(.top, framePadding)
+    
 #if os(iOS)
     .toolbarBackground(.visible, for: .navigationBar)
     .toolbarBackground(.red, for: .navigationBar)

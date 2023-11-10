@@ -21,6 +21,9 @@ struct CoreDataActionsView: View {
           CoreDataLoader.LoadData()
         } label: {
           Text("Load Data")
+            .padding(10)
+            .background(.blue)
+            .cornerRadius(10)
         }
         .frame(maxWidth: .infinity)
         
@@ -29,16 +32,21 @@ struct CoreDataActionsView: View {
           usersStorage.DeleteAll()
         } label: {
           Text("Delete Data")
+            .padding(10)
+            .background(.blue)
+            .cornerRadius(10)
         }
         .frame(maxWidth: .infinity)
-      }
-      .padding(.top, 10)
+      } 
       
       HStack {
         Button {
           showLeaderboard = true
         } label: {
           Text("View Leaderboard")
+            .padding(10)
+            .background(.blue)
+            .cornerRadius(10)
         }
         .frame(maxWidth: .infinity)
         
@@ -46,6 +54,9 @@ struct CoreDataActionsView: View {
           //
         } label: {
           Text("View Users")
+            .padding(10)
+            .background(.blue)
+            .cornerRadius(10)
         }
         .frame(maxWidth: .infinity)
       }

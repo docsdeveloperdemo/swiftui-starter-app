@@ -46,6 +46,7 @@ public class RealmManager {
       }
       assert(result == 0, "Failed to get random bytes")
     })
+    
     // Store the key in the keychain
     query = [
       kSecClass: kSecClassKey,
