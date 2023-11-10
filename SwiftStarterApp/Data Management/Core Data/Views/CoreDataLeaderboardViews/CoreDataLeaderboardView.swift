@@ -9,53 +9,40 @@
 import SwiftUI
 import CoreData
 
-struct CoreDataList: View {
+struct CoreDataLeaderboardView: View {
   
   @Environment(\.managedObjectContext) private var viewContext
-  
-//  @FetchRequest(
-//    sortDescriptors: [NSSortDescriptor(keyPath: \Leaderboard.score, ascending: true)],
-//    animation: .default)
-//  private var items: FetchedResults<Leaderboard>
-  
+
   @StateObject var leaderboardStorage: CoreDataManager_Leaderboard = CoreDataManager_Leaderboard.shared
   
-//  @StateObject var loading =
-  
-  @State private var showDetails : Bool = false
+  @State private var selectedItem: Leaderboard?
+  @State private var showSelectedItem: Bool = false
   
   var body: some View {
-    NavigationStack {
       List {
         ForEach(leaderboardStorage.items, id:\.userID) { item in
           Button {
-            showDetails = true
+            selectedItem = item
+            showSelectedItem = true
           } label: {
-            Text(String(item.score))
+            VStack(alignment: .leading){
+              Text(item.userID.uuidString)
+              Text(String(item.score))
+            }
+            
           }
         }
         .onDelete(perform: deleteItems)
       }
       .listStyle(.plain)
-      .navigationDestination(isPresented:$showDetails, destination: {
-        CoreDataDetailView()
-      })
+      .navigationDestination(isPresented: $showSelectedItem) {
+        if let selectedItem = selectedItem {
+          CoreDataDetailView(item: selectedItem)
+        }
+      }
 #if os(iOS)
       .navigationBarTitleDisplayMode(.inline)
 #endif
-      .toolbar {
-#if os(iOS)
-        ToolbarItem(placement: .navigationBarTrailing) {
-          EditButton()
-        }
-#endif
-        ToolbarItem {
-          Button(action: addItem) {
-            Label("Add Item", systemImage: "plus")
-          }
-        }
-      }
-    }
   }
   
   private func addItem() {
@@ -63,13 +50,13 @@ struct CoreDataList: View {
   }
   
   private func deleteItems(offsets: IndexSet) {
-//    offsets.map { items[$0] }.forEach(CoreDataManager.Remove)
+    offsets.map { leaderboardStorage.items[$0] }.forEach(CoreDataManager.Remove)
   }
 }
 
-struct CoreDataList_Previews: PreviewProvider {
+struct CoreDataLeaderboardView_Previews: PreviewProvider {
   static var previews: some View {
-    CoreDataList()
+    CoreDataLeaderboardView()
       .environment(\.managedObjectContext, PersistenceController.shared.viewContext)
   }
 }

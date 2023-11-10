@@ -9,18 +9,18 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-  @State private var selectedFolder: String? = "Data Management"
+  
+  @State private var selectedFolder: String?
   @State private var selectedItem: String?
   
   @State private var folders = [
-      "Data Management": [
-          "Core Data",
-          "Realm"
-      ],
-      "Components": [
+    "Data Management": [
+      "Core Data",
+      "Realm"
+    ],
+    "Components": [
       
-      ]
+    ]
   ]
   
   // Different column widths depending on the device type
@@ -28,20 +28,27 @@ struct HomeView: View {
     switch DeviceUtilities.deviceType() {
     case .ipad:
       return CGFloat(300)
-      
-    case .iphone:
-      return CGFloat(200)
-      
-    case .mac:
-      return CGFloat(200)
-      
     default:
       return CGFloat(200)
     }
   }
+
+  // Different frame padding per device
+  private var framePadding : CGFloat {
+    switch DeviceUtilities.deviceType() {
+    case .iphone:
+      return CGFloat(-20)
+    default:
+      return CGFloat(0)
+    }
+  }
+  
+  @State private var columnVisibility = NavigationSplitViewVisibility.all
+  @State private var navigationTitle = "Swift Starter App"
   
   var body: some View {
-      NavigationSplitView {
+    NavigationSplitView(columnVisibility: $columnVisibility) {
+      VStack {
         List(selection: $selectedFolder) {
           ForEach(Array(folders.keys.sorted()), id: \.self) { folder in
             NavigationLink(value: folder) {
@@ -49,27 +56,35 @@ struct HomeView: View {
             }
           }
         }
-        .navigationTitle("Swift Starter App")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationSplitViewColumnWidth(min: columnSize, ideal: columnSize, max: columnSize)
-      } content: {
-        if let selectedFolder {
-          List(selection: $selectedItem) {
-            ForEach(folders[selectedFolder, default: []], id: \.self) { item in
-              NavigationLink(value: item) {
-                Text(verbatim: item)
-              }
-            }
-          }
-          .navigationSplitViewColumnWidth(min: columnSize, ideal: columnSize, max: columnSize)
-          .navigationTitle(selectedFolder)
-#if os(iOS)
-          .navigationBarTitleDisplayMode(.inline)
-#endif
-        }
-      } detail: {
-        DetailView(selectedItem: selectedItem)
+        Text("By Ryan (mccaffers.com)")
       }
+      .navigationTitle("Swift Starter App")
+      .padding(.top, framePadding)
+#if os(iOS)
+      .toolbarBackground(.visible, for: .navigationBar)
+      .toolbarBackground(.red, for: .navigationBar)
+      .navigationBarTitleDisplayMode(.inline)
+#endif
+      .navigationSplitViewColumnWidth(min: columnSize, ideal: columnSize, max: columnSize)
+    } content: {
+      ContentView(selectedItem: $selectedItem,
+                  selectedFolder: $selectedFolder,
+                  folders: folders)
+    } detail: {
+      NavigationStack {
+        switch selectedItem {
+        case "Core Data":
+          CoreDataHomeView()
+        default:
+          DetailView(selectedItem: selectedItem)
+        }
+      }
+#if os(iOS)
+      .toolbarBackground(.visible, for: .navigationBar)
+      .toolbarBackground(.red, for: .navigationBar)
+      .navigationBarTitleDisplayMode(.inline)
+#endif
+    }
     
   }
 }

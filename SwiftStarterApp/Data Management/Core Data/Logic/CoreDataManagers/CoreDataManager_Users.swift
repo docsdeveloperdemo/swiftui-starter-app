@@ -41,8 +41,12 @@ class CoreDataManager_Users: NSObject, ObservableObject, NSFetchedResultsControl
     Fetch()
   }
   
-  public func Query() -> Users? {
-    return try? managedObjectContext.fetch(request).first
+  public func Query(_ inputRequest:NSFetchRequest<Users>? = nil) -> Users? {
+    if let inputRequest = inputRequest {
+      return try? managedObjectContext.fetch(inputRequest).first
+    } else {
+      return try? managedObjectContext.fetch(request).first
+    }
   }
   
   public func Fetch() {

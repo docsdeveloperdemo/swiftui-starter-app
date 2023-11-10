@@ -9,34 +9,30 @@
 import SwiftUI
 
 struct CoreDataHomeView: View {
-
-  
   
   var body: some View {
-    NavigationStack {
-      VStack(spacing:10) {
-        Text("Stats")
-          .bold()
-          .frame(maxWidth: .infinity, alignment:.leading)
-        
-        CoreDataStatsView()
-        
-        Text("Options")
-          .bold()
-          .frame(maxWidth: .infinity, alignment:.leading)
-        
-        CoreDataActionsView()
-        
-        Spacer()
-        
-      }
-      .padding(.horizontal, 15)
-  
-      .navigationTitle("Core Data")
+    
+    VStack(spacing:20) {
+      Text("Stats")
+        .bold()
+        .frame(maxWidth: .infinity, alignment:.leading)
+      
+      CoreDataStatsView()
+      
+      Text("Options")
+        .bold()
+        .frame(maxWidth: .infinity, alignment:.leading)
+      
+      CoreDataActionsView()
+      
+      Spacer()
       
     }
-  }
+    .padding(.horizontal, 15)
+    .navigationTitle("Core Data")
 
+  }
+  
 }
 
 struct CoreDataHomeView_Previews: PreviewProvider {

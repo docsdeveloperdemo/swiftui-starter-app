@@ -11,7 +11,9 @@ import SwiftUI
 struct CoreDataActionsView: View {
   
   @State var showLeaderboard = false
+  
   @StateObject var leaderboardStorage: CoreDataManager_Leaderboard = CoreDataManager_Leaderboard.shared
+  @StateObject var usersStorage: CoreDataManager_Users = CoreDataManager_Users.shared
   
     var body: some View {
       HStack {
@@ -24,6 +26,7 @@ struct CoreDataActionsView: View {
         
         Button {
           leaderboardStorage.DeleteAll()
+          usersStorage.DeleteAll()
         } label: {
           Text("Delete Data")
         }
@@ -47,7 +50,7 @@ struct CoreDataActionsView: View {
         .frame(maxWidth: .infinity)
       }
       .navigationDestination(isPresented: $showLeaderboard, destination: {
-        CoreDataList()
+        CoreDataLeaderboardView()
       })
     }
 }

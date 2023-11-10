@@ -8,17 +8,22 @@
 
 import SwiftUI
 
-struct CoreDataStatsView: View {
+struct CoreDataDetailView: View {
   
-  @StateObject var leaderboardStorage: CoreDataManager_Leaderboard = CoreDataManager_Leaderboard.shared
+  var item : Leaderboard
   
-  var body: some View {
-    Text(String(leaderboardStorage.items.count))
-  }
+    var body: some View {
+      VStack(alignment: .leading){
+        Text(item.userID.uuidString)
+        Text(String(item.score))
+      }
+        .navigationTitle(item.userID.uuidString)
+    }
 }
 
-struct CoreDataStatsView_Previews: PreviewProvider {
+struct CoreDataDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CoreDataStatsView()
+      CoreDataDetailView(item: Leaderboard())
+        
     }
 }
