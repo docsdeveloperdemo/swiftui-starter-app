@@ -14,6 +14,7 @@ struct CoreDataLeaderboardView: View {
   @Environment(\.managedObjectContext) private var viewContext
 
   @StateObject var leaderboardStorage: CoreDataManager_Leaderboard = CoreDataManager_Leaderboard.shared
+  @StateObject var usersStorage: CoreDataManager_Users = CoreDataManager_Users.shared
   
   @State private var selectedItem: Leaderboard?
   @State private var showSelectedItem: Bool = false
@@ -26,7 +27,7 @@ struct CoreDataLeaderboardView: View {
             showSelectedItem = true
           } label: {
             VStack(alignment: .leading){
-              Text(item.userID.uuidString)
+              Text(usersStorage.GetUserByID(item.userID)?.username ?? "")
               Text(String(item.score))
             }
             
@@ -40,7 +41,9 @@ struct CoreDataLeaderboardView: View {
       .navigationBarTitleDisplayMode(.inline)
       .navigationDestination(isPresented: $showSelectedItem) {
         if let selectedItem = selectedItem {
-          CoreDataLeaderboardDetailView(item: selectedItem)
+          // pre-load the user information
+          let userObject = usersStorage.GetUserByID(selectedItem.userID)
+          CoreDataLeaderboardDetailView(item: selectedItem, userObject: userObject)
         }
       }
 #if os(iOS)

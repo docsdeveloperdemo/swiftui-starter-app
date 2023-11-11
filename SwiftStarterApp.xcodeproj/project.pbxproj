@@ -53,6 +53,7 @@
 		946464832AF777850042EE31 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		946C48C52AFEBB7B00C79D9C /* RealmDataManager_Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManager_Users.swift; sourceTree = "<group>"; };
 		946C48C82AFEC9D000C79D9C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		946C48E62AFFCFD400C79D9C /* names.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = names.txt; sourceTree = "<group>"; };
 		947609F42AF62F1C001C9A67 /* SwiftStarterApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftStarterApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		947609F72AF62F1C001C9A67 /* SwiftStarterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStarterApp.swift; sourceTree = "<group>"; };
 		947609F92AF62F1C001C9A67 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -116,6 +117,14 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		946C48E52AFFCFBA00C79D9C /* FileManagement */ = {
+			isa = PBXGroup;
+			children = (
+				946C48E62AFFCFD400C79D9C /* names.txt */,
+			);
+			path = FileManagement;
+			sourceTree = "<group>";
+		};
 		947609EB2AF62F1C001C9A67 = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +173,7 @@
 		94760A0B2AF62F50001C9A67 /* Data Management */ = {
 			isa = PBXGroup;
 			children = (
+				946C48E52AFFCFBA00C79D9C /* FileManagement */,
 				94E275692AF8E6BA003C3C05 /* Realm */,
 				94760A0C2AF62F58001C9A67 /* Core Data */,
 			);

@@ -16,6 +16,8 @@ struct SwiftStarterApp: App {
         WindowGroup {
           HomeView()
             .environment(\.managedObjectContext, persistenceController)
+            .colorScheme(.light)
+            .preferredColorScheme(.dark)
             .onAppear {
               print("Running on " + DeviceUtilities.deviceType().rawValue)
             }

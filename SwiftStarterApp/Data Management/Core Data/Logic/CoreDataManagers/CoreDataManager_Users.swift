@@ -41,12 +41,20 @@ class CoreDataManager_Users: NSObject, ObservableObject, NSFetchedResultsControl
     Fetch()
   }
   
-  public func Query(_ inputRequest:NSFetchRequest<Users>? = nil) -> Users? {
-    if let inputRequest = inputRequest {
-      return try? managedObjectContext.fetch(inputRequest).first
-    } else {
-      return try? managedObjectContext.fetch(request).first
+  public func GetUserByID(_ uuid: UUID? = nil) -> Users? {
+    if let uuid = uuid {
+      let planetPredicate = NSPredicate(
+        format: "userID = %@", uuid.uuidString
+      )
+      let requestWithSort = NSFetchRequest<Users>(entityName: "Users")
+      requestWithSort.sortDescriptors = []
+      requestWithSort.predicate = planetPredicate
+      return try? managedObjectContext.fetch(requestWithSort).first
     }
+    return nil
+//    else {
+//      return try? managedObjectContext.fetch(request).first
+//    }
   }
   
   public func Fetch() {

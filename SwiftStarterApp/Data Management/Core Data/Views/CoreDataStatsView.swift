@@ -14,21 +14,19 @@ struct CoreDataStatsView: View {
   @StateObject var usersStorage: CoreDataManager_Users = CoreDataManager_Users.shared
   
   var body: some View {
-    HStack {
+    List {
       HStack {
-        VStack(spacing:20) {
-          Text("Leaderboard")
-          Text(String(leaderboardStorage.items.count))
-        }
-      }.frame(maxWidth: .infinity)
-      
+        Text("Leaderboard")
+        Spacer()
+        Text(String(leaderboardStorage.items.count))
+      }
       HStack {
-        VStack(spacing:20) {
-          Text("Users")
-          Text(String(usersStorage.items.count))
-        }
-      }.frame(maxWidth: .infinity)
-    }.padding(.horizontal, 15)
+        Text("Users")
+        Spacer()
+        Text(String(usersStorage.items.count))
+      }
+    }
+    .listStyle(.plain)
   }
 }
 

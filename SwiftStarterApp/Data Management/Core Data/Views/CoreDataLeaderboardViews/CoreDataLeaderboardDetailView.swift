@@ -12,16 +12,21 @@ struct CoreDataLeaderboardDetailView: View {
   
   var item : Leaderboard
   
-    var body: some View {
-      VStack(alignment: .leading){
-        Text(item.userID.uuidString)
+  @StateObject var usersStorage: CoreDataManager_Users = CoreDataManager_Users.shared
+  @State var userObject : Users?
+  
+  var body: some View {
+    VStack(alignment: .leading){
+      if let userObject = userObject {
+        Text(userObject.username)
         Text(String(item.score))
       }
-        .navigationTitle(item.userID.uuidString)
-        .toolbarBackground(.visible, for: .navigationBar)
-        .toolbarBackground(.red, for: .navigationBar)
-        .navigationBarTitleDisplayMode(.inline)
     }
+    .navigationTitle(userObject?.username ?? "")
+    .toolbarBackground(.visible, for: .navigationBar)
+    .toolbarBackground(.red, for: .navigationBar)
+    .navigationBarTitleDisplayMode(.inline)
+  }
 }
 
 struct CoreDataDetailView_Previews: PreviewProvider {

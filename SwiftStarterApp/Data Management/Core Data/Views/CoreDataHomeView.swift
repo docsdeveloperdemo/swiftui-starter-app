@@ -16,9 +16,9 @@ struct CoreDataHomeView: View {
       Text("Entries")
         .frame(maxWidth: .infinity, alignment:.leading)
       
+      // List View nested within the VStack
       CoreDataStatsView()
-      
-      Divider()
+        .frame(maxHeight: 100) // without setting a maxHeight the list view will expand to fill the page
       
       Text("Options")
         .frame(maxWidth: .infinity, alignment:.leading)
