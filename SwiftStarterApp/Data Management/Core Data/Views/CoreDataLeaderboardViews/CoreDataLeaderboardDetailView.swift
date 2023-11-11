@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CoreDataDetailView: View {
+struct CoreDataLeaderboardDetailView: View {
   
   var item : Leaderboard
   
@@ -26,7 +26,7 @@ struct CoreDataDetailView: View {
 
 struct CoreDataDetailView_Previews: PreviewProvider {
     static var previews: some View {
-      CoreDataDetailView(item: Leaderboard())
+      CoreDataLeaderboardDetailView(item: Leaderboard())
         
     }
 }

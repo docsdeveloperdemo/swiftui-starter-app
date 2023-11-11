@@ -13,7 +13,7 @@ struct CoreDataHomeView: View {
   var body: some View {
     
     VStack(spacing:20) {
-      Text("Stats")
+      Text("Entries")
         .frame(maxWidth: .infinity, alignment:.leading)
       
       CoreDataStatsView()

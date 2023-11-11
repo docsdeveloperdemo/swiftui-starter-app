@@ -17,14 +17,14 @@ struct CoreDataStatsView: View {
     HStack {
       HStack {
         VStack(spacing:20) {
-          Text("Leaderboard Count")
+          Text("Leaderboard")
           Text(String(leaderboardStorage.items.count))
         }
       }.frame(maxWidth: .infinity)
       
       HStack {
         VStack(spacing:20) {
-          Text("Users Count")
+          Text("Users")
           Text(String(usersStorage.items.count))
         }
       }.frame(maxWidth: .infinity)

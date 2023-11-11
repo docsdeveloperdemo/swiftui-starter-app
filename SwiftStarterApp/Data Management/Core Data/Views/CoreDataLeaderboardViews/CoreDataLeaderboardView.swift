@@ -40,7 +40,7 @@ struct CoreDataLeaderboardView: View {
       .navigationBarTitleDisplayMode(.inline)
       .navigationDestination(isPresented: $showSelectedItem) {
         if let selectedItem = selectedItem {
-          CoreDataDetailView(item: selectedItem)
+          CoreDataLeaderboardDetailView(item: selectedItem)
         }
       }
 #if os(iOS)
