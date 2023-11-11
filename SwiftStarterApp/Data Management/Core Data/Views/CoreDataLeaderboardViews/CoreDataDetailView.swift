@@ -18,6 +18,9 @@ struct CoreDataDetailView: View {
         Text(String(item.score))
       }
         .navigationTitle(item.userID.uuidString)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .toolbarBackground(.red, for: .navigationBar)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

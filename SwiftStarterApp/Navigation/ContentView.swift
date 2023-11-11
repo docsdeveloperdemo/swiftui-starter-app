@@ -44,7 +44,9 @@ struct ContentView: View {
         }
       }
     }
+#if os(iOS)
     .listStyle(.insetGrouped)
+#endif
     .padding(.top, framePadding)
     
 #if os(iOS)
@@ -53,6 +55,13 @@ struct ContentView: View {
     .navigationBarTitleDisplayMode(.inline)
 #endif
     .navigationSplitViewColumnWidth(min: columnSize, ideal: columnSize, max: columnSize)
-    .navigationTitle(selectedFolder ?? "")
+    .toolbar {
+        ToolbarItem(placement: .principal) {
+            VStack {
+                Text(selectedFolder ?? "")
+                    .foregroundColor(.white)
+            }
+        }
+    }
   }
 }

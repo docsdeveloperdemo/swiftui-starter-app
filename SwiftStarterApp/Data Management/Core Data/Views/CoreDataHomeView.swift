@@ -9,12 +9,11 @@
 import SwiftUI
 
 struct CoreDataHomeView: View {
-  
+
   var body: some View {
     
     VStack(spacing:20) {
       Text("Stats")
-        .bold()
         .frame(maxWidth: .infinity, alignment:.leading)
       
       CoreDataStatsView()
@@ -22,7 +21,6 @@ struct CoreDataHomeView: View {
       Divider()
       
       Text("Options")
-        .bold()
         .frame(maxWidth: .infinity, alignment:.leading)
       
       CoreDataActionsView()
@@ -32,8 +30,17 @@ struct CoreDataHomeView: View {
     }
     .padding(.top, 10)
     .padding(.horizontal, 15)
-    .navigationTitle("Core Data")
-
+    .toolbarBackground(.visible, for: .navigationBar)
+    .toolbarBackground(.red, for: .navigationBar)
+    .navigationBarTitleDisplayMode(.inline)
+    .toolbar {
+        ToolbarItem(placement: .principal) {
+            VStack {
+                Text("Core Data")
+                    .foregroundColor(.white)
+            }
+        }
+    }
   }
   
 }

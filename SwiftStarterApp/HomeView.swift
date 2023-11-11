@@ -58,7 +58,14 @@ struct HomeView: View {
         }
         Text("By Ryan (mccaffers.com)")
       }
-      .navigationTitle(navigationTitle)
+      .toolbar {
+          ToolbarItem(placement: .principal) {
+              VStack {
+                  Text(navigationTitle)
+                      .foregroundColor(.white)
+              }
+          }
+      }
       .padding(.top, framePadding)
 #if os(iOS)
       .toolbarBackground(.visible, for: .navigationBar)
@@ -66,6 +73,7 @@ struct HomeView: View {
       .navigationBarTitleDisplayMode(.inline)
 #endif
       .navigationSplitViewColumnWidth(min: columnSize, ideal: columnSize, max: columnSize)
+      .accentColor(.white)
     } content: {
       ContentView(selectedItem: $selectedItem,
                   selectedFolder: $selectedFolder,
