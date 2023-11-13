@@ -14,7 +14,14 @@ struct CoreDataStatsView: View {
   @StateObject var usersStorage: CoreDataManager_Users = CoreDataManager_Users.shared
   
   var body: some View {
-    List {
+    VStack (spacing:10){
+      HStack {
+        Text("Entity")
+          .bold()
+        Spacer()
+        Text("Count")
+          .bold()
+      }
       HStack {
         Text("Leaderboard")
         Spacer()
@@ -26,7 +33,7 @@ struct CoreDataStatsView: View {
         Text(String(usersStorage.items.count))
       }
     }
-    .listStyle(.plain)
+    .background(Color("BackgroundColor"))
     
   }
 }

@@ -12,28 +12,30 @@ struct CoreDataHomeView: View {
   
   var body: some View {
     
-    VStack(spacing:0) {
-      Text("Entries")
+    VStack(spacing:20) {
+      
+      Text("Set of examples using Core Data storage and observing the updates in the SwfitUI")
+        .frame(maxWidth: .infinity)
+
+      Text("Core Data Entities")
+        .font(.system(size: 20))
         .bold()
         .frame(maxWidth: .infinity, alignment:.leading)
-        .padding(.horizontal, 20)
       
-      // List View nested within the VStack
       CoreDataStatsView()
-        .frame(maxHeight: 100) // without setting a maxHeight the list view will expand to fill the page
       
       Text("Options")
         .bold()
         .frame(maxWidth: .infinity, alignment:.leading)
-        .padding(.horizontal, 20)
-        .padding(.bottom, 10)
       
       CoreDataActionsView()
-        .padding(.horizontal, 20)
+        
       
       Spacer()
     }
+    .padding(.horizontal, 20)
     .padding(.top, 10)
+    .background(Color("BackgroundColor"))
   }
 }
 

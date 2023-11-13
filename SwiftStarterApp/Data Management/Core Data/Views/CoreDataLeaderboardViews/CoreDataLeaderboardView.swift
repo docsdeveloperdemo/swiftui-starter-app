@@ -32,10 +32,13 @@ struct CoreDataLeaderboardView: View {
             }
             
           }
+          .listRowBackground(Color("BackgroundColor"))
         }
         .onDelete(perform: deleteItems)
       }
       .listStyle(.plain)
+      .scrollContentBackground(.hidden)
+      .background(Color("BackgroundColor"))
       .navigationTitle("Leaderboard")
       .toolbarBackground(.visible, for: .navigationBar)
       .toolbarBackground(Color("NavigationBar"), for: .navigationBar)

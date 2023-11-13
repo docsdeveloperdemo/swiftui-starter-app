@@ -32,29 +32,32 @@ struct NavigationSplitContentView: View {
   
   @Binding var route : NavigationSplitRoute?
   @Binding var selectedItem: String?
-
+  
   var body: some View {
+    
     List(selection: $selectedItem) {
-      if let route = route {
-        ForEach(route.array, id: \.self) { item in
-          NavigationLink(value: item) {
-            Text(verbatim: item)
+      Section {
+        if let route = route {
+          ForEach(route.array, id: \.self) { item in
+            NavigationLink(value: item) {
+              Text(verbatim: item)
+            }
           }
         }
+      } header: {
+        Rectangle().fill(.clear).frame(height:0)
       }
-      
     }
-    .navigationTitle(route?.title ?? "")
+    .environment(\.defaultMinListHeaderHeight, 0)
 #if os(iOS)
     .listStyle(.insetGrouped)
-#endif
-    .padding(.top, framePadding)
-#if os(iOS)
+    .navigationTitle(route?.title ?? "")
     .toolbarBackground(.visible, for: .navigationBar)
     .toolbarBackground(Color("NavigationBar"), for: .navigationBar)
-    .navigationBarTitleDisplayMode(.inline)
+    .navigationBarTitleDisplayMode(.large)
 #endif
     .navigationSplitViewColumnWidth(min: columnSize, ideal: columnSize, max: columnSize)
+    
     
   }
 }

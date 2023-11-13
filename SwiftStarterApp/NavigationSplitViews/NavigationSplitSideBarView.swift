@@ -42,6 +42,7 @@ struct NavigationSplitSideBarView: View {
   var body: some View {
     VStack {
       List(selection: $route) {
+        
         Section("Data and Storage") {
           ForEach(Array(dataFolders.keys.sorted()), id: \.self) { folder in
             NavigationLink(value: NavigationSplitRoute(title: folder,
@@ -50,6 +51,8 @@ struct NavigationSplitSideBarView: View {
             }
           }
         }
+        .accentColor(Color("ListArrowColor"))
+        .padding(.top, 5)
         
         Section("Views") {
           ForEach(Array(dataFolders2.keys.sorted()), id: \.self) { folder in
@@ -59,13 +62,11 @@ struct NavigationSplitSideBarView: View {
             }
           }
         }
+        .accentColor(Color("ListArrowColor"))
       }
-
-      .scrollContentBackground(.hidden)
-      Text("by Ryan (mccaffers.com)")
+      Text("By Ryan (mccaffers.com)")
     }
     .navigationTitle("SwiftUI Starter App")
-    .background(Color("BackgroundColor"))
 #if os(iOS)
     .toolbarBackground(.visible, for: .navigationBar)
     .toolbarBackground(Color("NavigationBar"), for: .navigationBar)
