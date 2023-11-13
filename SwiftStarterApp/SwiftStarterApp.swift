@@ -14,10 +14,8 @@ struct SwiftStarterApp: App {
 
     var body: some Scene {
         WindowGroup {
-          HomeView()
+          NavigationSplitHomeView()
             .environment(\.managedObjectContext, persistenceController)
-            .colorScheme(.light)
-            .preferredColorScheme(.dark)
             .onAppear {
               print("Running on " + DeviceUtilities.deviceType().rawValue)
             }

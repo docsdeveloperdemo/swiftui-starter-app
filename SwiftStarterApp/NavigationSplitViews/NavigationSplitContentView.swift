@@ -1,13 +1,14 @@
+// SwiftUI Starter App
+// By Ryan McCaffery (mccaffers.com)
 //
-//  ContentView.swift
-//  SwiftStarterApp
-//
-//  Created by Ryan McCaffery on 10/11/2023.
-//
+// This code is licensed under Creative Commons Zero (CC0)
+// You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.
+// See LICENSE.md for more details
+// ---------------------------------------
 
 import SwiftUI
 
-struct ContentView: View {
+struct NavigationSplitContentView: View {
   
   // Different column widths depending on the device type
   private var columnSize : CGFloat {
@@ -29,39 +30,31 @@ struct ContentView: View {
     }
   }
   
-    
+  @Binding var route : NavigationSplitRoute?
   @Binding var selectedItem: String?
-  @Binding var selectedFolder: String?
-  var folders: [String : [String]]
-  
+
   var body: some View {
     List(selection: $selectedItem) {
-      if let selectedFolder = selectedFolder {
-        ForEach(folders[selectedFolder, default: []], id: \.self) { item in
+      if let route = route {
+        ForEach(route.array, id: \.self) { item in
           NavigationLink(value: item) {
             Text(verbatim: item)
           }
         }
       }
+      
     }
+    .navigationTitle(route?.title ?? "")
 #if os(iOS)
     .listStyle(.insetGrouped)
 #endif
     .padding(.top, framePadding)
-    
 #if os(iOS)
     .toolbarBackground(.visible, for: .navigationBar)
-    .toolbarBackground(.red, for: .navigationBar)
+    .toolbarBackground(Color("NavigationBar"), for: .navigationBar)
     .navigationBarTitleDisplayMode(.inline)
 #endif
     .navigationSplitViewColumnWidth(min: columnSize, ideal: columnSize, max: columnSize)
-    .toolbar {
-        ToolbarItem(placement: .principal) {
-            VStack {
-                Text(selectedFolder ?? "")
-                    .foregroundColor(.white)
-            }
-        }
-    }
+    
   }
 }

@@ -36,8 +36,9 @@ struct CoreDataLeaderboardView: View {
         .onDelete(perform: deleteItems)
       }
       .listStyle(.plain)
+      .navigationTitle("Leaderboard")
       .toolbarBackground(.visible, for: .navigationBar)
-      .toolbarBackground(.red, for: .navigationBar)
+      .toolbarBackground(Color("NavigationBar"), for: .navigationBar)
       .navigationBarTitleDisplayMode(.inline)
       .navigationDestination(isPresented: $showSelectedItem) {
         if let selectedItem = selectedItem {

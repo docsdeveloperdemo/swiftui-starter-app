@@ -16,53 +16,60 @@ struct CoreDataActionsView: View {
   @StateObject var usersStorage: CoreDataManager_Users = CoreDataManager_Users.shared
   
     var body: some View {
-      HStack {
-        Button {
-          CoreDataLoader.LoadData()
-        } label: {
-          Text("Load Data")
-            .frame(maxWidth: .infinity)
-            .frame(height: 50)
-            .background(Color("ButtonColor"))
-            .cornerRadius(10)
-        }
-        .frame(maxWidth: .infinity)
-        
-        Button {
-          leaderboardStorage.DeleteAll()
-          usersStorage.DeleteAll()
-        } label: {
-          Text("Delete Data")
-            .frame(maxWidth: .infinity)
-            .frame(height: 50)
-            .background(Color("ButtonColor"))
-            .cornerRadius(10)
-        }
-        .frame(maxWidth: .infinity)
-      }
       
-      HStack {
-        Button {
-          showLeaderboard = true
-        } label: {
-          Text("View Leaderboard")
-            .frame(maxWidth: .infinity)
-            .frame(height: 50)
-            .background(Color("ButtonColor"))
-            .cornerRadius(10)
+      VStack(spacing:10) {
+        HStack(spacing:20) {
+          Button {
+            CoreDataLoader.LoadData()
+          } label: {
+            Text("Load Data")
+              .frame(maxWidth: .infinity)
+              .frame(height: 40)
+              .background(Color("ButtonColor"))
+              .foregroundColor(.white)
+              .cornerRadius(10)
+          }
+          .frame(maxWidth: .infinity)
+          
+          Button {
+            leaderboardStorage.DeleteAll()
+            usersStorage.DeleteAll()
+          } label: {
+            Text("Delete Data")
+              .frame(maxWidth: .infinity)
+              .frame(height: 40)
+              .background(Color("ButtonColor"))
+              .foregroundColor(.white)
+              .cornerRadius(10)
+          }
+          .frame(maxWidth: .infinity)
         }
-        .frame(maxWidth: .infinity)
         
-        Button {
-          //
-        } label: {
-          Text("View Users")
-            .frame(maxWidth: .infinity)
-            .frame(height: 50)
-            .background(Color("ButtonColor"))
-            .cornerRadius(10)
+        HStack(spacing:20) {
+          Button {
+            showLeaderboard = true
+          } label: {
+            Text("View Leaderboard")
+              .frame(maxWidth: .infinity)
+              .frame(height: 40)
+              .background(Color("ButtonColor"))
+              .foregroundColor(.white)
+              .cornerRadius(10)
+          }
+          .frame(maxWidth: .infinity)
+          
+          Button {
+            //
+          } label: {
+            Text("View Users")
+              .frame(maxWidth: .infinity)
+              .frame(height: 40)
+              .background(Color("ButtonColor"))
+              .foregroundColor(.white)
+              .cornerRadius(10)
+          }
+          .frame(maxWidth: .infinity)
         }
-        .frame(maxWidth: .infinity)
       }
       .navigationDestination(isPresented: $showLeaderboard, destination: {
         CoreDataLeaderboardView()

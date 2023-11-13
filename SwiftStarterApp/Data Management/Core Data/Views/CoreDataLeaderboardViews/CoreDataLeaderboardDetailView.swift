@@ -24,7 +24,7 @@ struct CoreDataLeaderboardDetailView: View {
     }
     .navigationTitle(userObject?.username ?? "")
     .toolbarBackground(.visible, for: .navigationBar)
-    .toolbarBackground(.red, for: .navigationBar)
+    .toolbarBackground(Color("NavigationBar"), for: .navigationBar)
     .navigationBarTitleDisplayMode(.inline)
   }
 }

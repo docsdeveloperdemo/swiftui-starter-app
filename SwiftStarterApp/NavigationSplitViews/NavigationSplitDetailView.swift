@@ -8,13 +8,14 @@
 
 import SwiftUI
 
-struct DetailView: View {
+struct NavigationSplitDetailView: View {
   var selectedItem : String?
   
     var body: some View {
       if let selectedItem {
         if selectedItem == "Core Data" {
           CoreDataHomeView()
+    
         }  else {
         NavigationLink(value: selectedItem) {
         
@@ -31,6 +32,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+      NavigationSplitDetailView()
     }
 }

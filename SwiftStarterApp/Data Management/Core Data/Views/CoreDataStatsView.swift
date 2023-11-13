@@ -27,6 +27,7 @@ struct CoreDataStatsView: View {
       }
     }
     .listStyle(.plain)
+    
   }
 }
 

@@ -9,40 +9,32 @@
 import SwiftUI
 
 struct CoreDataHomeView: View {
-
+  
   var body: some View {
     
-    VStack(spacing:20) {
+    VStack(spacing:0) {
       Text("Entries")
+        .bold()
         .frame(maxWidth: .infinity, alignment:.leading)
+        .padding(.horizontal, 20)
       
       // List View nested within the VStack
       CoreDataStatsView()
         .frame(maxHeight: 100) // without setting a maxHeight the list view will expand to fill the page
       
       Text("Options")
+        .bold()
         .frame(maxWidth: .infinity, alignment:.leading)
+        .padding(.horizontal, 20)
+        .padding(.bottom, 10)
       
       CoreDataActionsView()
+        .padding(.horizontal, 20)
       
       Spacer()
-      
     }
     .padding(.top, 10)
-    .padding(.horizontal, 15)
-    .toolbarBackground(.visible, for: .navigationBar)
-    .toolbarBackground(.red, for: .navigationBar)
-    .navigationBarTitleDisplayMode(.inline)
-    .toolbar {
-        ToolbarItem(placement: .principal) {
-            VStack {
-                Text("Core Data")
-                    .foregroundColor(.white)
-            }
-        }
-    }
   }
-  
 }
 
 struct CoreDataHomeView_Previews: PreviewProvider {
