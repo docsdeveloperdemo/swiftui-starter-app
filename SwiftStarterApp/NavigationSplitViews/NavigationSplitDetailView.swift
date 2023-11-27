@@ -16,7 +16,10 @@ struct NavigationSplitDetailView: View {
         if selectedItem == "Core Data" {
           CoreDataHomeView()
     
-        }  else {
+        } else if selectedItem == "Progress View" {
+          LoadingView()
+    
+        } else {
         NavigationLink(value: selectedItem) {
         
             Text(verbatim: selectedItem)
