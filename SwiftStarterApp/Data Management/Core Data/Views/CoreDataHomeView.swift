@@ -17,12 +17,16 @@ struct CoreDataHomeView: View {
       Text("Set of examples using Core Data storage and observing the updates in the SwfitUI")
         .frame(maxWidth: .infinity)
 
+      Divider()
+      
       Text("Core Data Entities")
         .font(.system(size: 20))
         .bold()
         .frame(maxWidth: .infinity, alignment:.leading)
       
       CoreDataStatsView()
+      
+      Divider()
       
       Text("Options")
         .bold()

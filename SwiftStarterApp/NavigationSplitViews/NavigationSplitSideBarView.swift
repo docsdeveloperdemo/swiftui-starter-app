@@ -25,7 +25,8 @@ struct NavigationSplitSideBarView: View {
   
   @State private var dataFolders2 = [
     "Components": [
-      "Progress View"
+      "Progress View",
+      "Gauge"
     ]
   ]
   

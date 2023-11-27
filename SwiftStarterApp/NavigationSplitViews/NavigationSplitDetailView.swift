@@ -11,26 +11,30 @@ import SwiftUI
 struct NavigationSplitDetailView: View {
   var selectedItem : String?
   
-    var body: some View {
-      if let selectedItem {
-        if selectedItem == "Core Data" {
-          CoreDataHomeView()
-    
-        } else if selectedItem == "Progress View" {
-          LoadingView()
-    
-        } else {
-        NavigationLink(value: selectedItem) {
+  var body: some View {
+    if let selectedItem {
+      switch selectedItem {
+      case "Core Data":
+        CoreDataHomeView()
         
-            Text(verbatim: selectedItem)
-              .navigationTitle(selectedItem)
-              .background(.red)
-          }
+      case "Progress View":
+        LoadingView()
+        
+      case "Gauge":
+        GaugeView()
+        
+      default:
+        NavigationLink(value: selectedItem) {
+          Text(verbatim: selectedItem)
+            .navigationTitle(selectedItem)
+            .background(.red)
         }
-      } else {
-        Text("Choose an item from the content")
       }
+      
+    } else {
+      Text("Choose an item from the content")
     }
+  }
 }
 
 struct DetailView_Previews: PreviewProvider {
