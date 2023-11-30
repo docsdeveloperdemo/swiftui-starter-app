@@ -20,15 +20,18 @@ struct NavigationSplitDetailView: View {
       case "Progress View":
         LoadingView()
         
+      case "Buttons":
+        ButtonView()
+        
       case "Gauge":
         GaugeView()
         
       default:
-        NavigationLink(value: selectedItem) {
-          Text(verbatim: selectedItem)
+        VStack {
+          Text(verbatim: "To be developed")
             .navigationTitle(selectedItem)
-            .background(.red)
         }
+        
       }
       
     } else {

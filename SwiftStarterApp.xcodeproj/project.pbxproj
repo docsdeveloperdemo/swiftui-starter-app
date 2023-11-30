@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9408629E2B187D520020AA8B /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9408629D2B187D520020AA8B /* ButtonView.swift */; };
 		9416CA6B2AFCCB60002D49E6 /* DeviceUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9416CA6A2AFCCB60002D49E6 /* DeviceUtilities.swift */; };
 		9416CA6E2AFCE1A7002D49E6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 9416CA6D2AFCE1A7002D49E6 /* Realm */; };
 		9416CA702AFCE1A7002D49E6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9416CA6F2AFCE1A7002D49E6 /* RealmSwift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9408629D2B187D520020AA8B /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		9416CA6A2AFCCB60002D49E6 /* DeviceUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUtilities.swift; sourceTree = "<group>"; };
 		941B5DA92B02217C00F5D3B1 /* NavigationSplitSideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSplitSideBarView.swift; sourceTree = "<group>"; };
 		946464802AF7758B0042EE31 /* RealmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			children = (
 				94BA96C22B153D2A006D2CE7 /* LoadingView.swift */,
 				94BA96C42B15479E006D2CE7 /* GaugeView.swift */,
+				9408629D2B187D520020AA8B /* ButtonView.swift */,
 			);
 			path = Componets;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				94A7E4632AF907DF00D23515 /* Leaderboard+CoreDataClass.swift in Sources */,
 				94E275662AF8C61D003C3C05 /* CoreDataLeaderboardDetailView.swift in Sources */,
 				9489F5462AFCE7D9006F4D0E /* CoreDataActionsView.swift in Sources */,
+				9408629E2B187D520020AA8B /* ButtonView.swift in Sources */,
 				946464812AF7758B0042EE31 /* RealmDataManager.swift in Sources */,
 				94760A0E2AF62F6B001C9A67 /* CoreDataManager.swift in Sources */,
 				947609FD2AF62F1C001C9A67 /* SwiftStarterApp.xcdatamodeld in Sources */,

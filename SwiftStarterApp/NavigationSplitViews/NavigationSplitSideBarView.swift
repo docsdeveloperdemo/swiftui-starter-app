@@ -19,13 +19,15 @@ struct NavigationSplitSideBarView: View {
       "Realm"
     ],
     "File Storage": [
-      
+      "Local Documents",
+      "iCloud"
     ]
   ]
   
   @State private var dataFolders2 = [
     "Components": [
       "Progress View",
+      "Buttons",
       "Gauge"
     ]
   ]
