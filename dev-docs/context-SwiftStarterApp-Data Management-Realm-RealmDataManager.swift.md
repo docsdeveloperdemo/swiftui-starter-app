@@ -59,19 +59,23 @@ The `getRealm()` function is likely used throughout the application whenever acc
 It's important to note that the `getRealm()` function returns an optional `Realm?` instance. This means that the caller needs to handle the case where the function returns `nil`, which could happen if there is an error or if the configuration is invalid.
 # checkRealmFileSize SwiftStarterApp/Data Management/Realm/RealmDataManager.swift
 ## Imported Code Object
-The `checkRealmFileSize()` function is a static function (accessible without creating an instance of the class) that calculates the size of the Realm database file in megabytes (MB). Here's a breakdown of what the function does:
+The `checkRealmFileSize()` function in the provided code snippet is a utility function that returns the size of the Realm database file in megabytes (MB).
 
-1. It retrieves the file URL of the default Realm configuration using `Realm.Configuration.defaultConfiguration.fileURL`.
-2. If the file URL exists, it extracts the relative path of the file using `fileURL?.relativePath`.
-3. It attempts to retrieve the file attributes (including the file size) of the Realm file at the specified relative path using `FileManager.default.attributesOfItem(atPath:realmPath)`.
-4. If the file attributes are successfully retrieved, it checks if the `FileAttributeKey.size` key exists in the attributes dictionary. This key holds the file size in bytes.
-5. If the file size attribute exists, it casts it to a `Double` value and divides it by `1000000.0` to convert the size from bytes to megabytes (MB).
-6. The function returns the file size in megabytes as a `Double` value.
-7. If any error occurs during the process (e.g., the Realm file doesn't exist or can't be accessed), it prints an error message to the console and returns `0.0` as the file size.
+Here's a breakdown of what the function does:
 
-This function can be useful for monitoring the size of the Realm database file, especially when working with large amounts of data. It can help identify potential issues, such as excessive database growth, and trigger appropriate actions, like compacting the Realm file or implementing data pruning mechanisms.
+1. It first retrieves the file URL of the default Realm configuration using `Realm.Configuration.defaultConfiguration.fileURL?.relativePath`. This is the path to the Realm database file on the device.
 
-  
-  
+2. If the file URL is available, it then tries to retrieve the file attributes, including the file size, using `FileManager.default.attributesOfItem(atPath:realmPath)`.
+
+3. If the file attributes are successfully obtained, it checks if the `FileAttributeKey.size` key exists in the attributes dictionary. This key represents the size of the file in bytes.
+
+4. If the `FileAttributeKey.size` key exists, it casts the value to `Double` and divides it by `1000000.0` to convert the size from bytes to megabytes (MB).
+
+5. The function returns the calculated file size in megabytes as a `Double` value.
+
+6. If any error occurs during the process, such as the file URL being unavailable or an error occurring while retrieving file attributes, the function prints the error message to the console and returns `0.0` as the file size.
+
+In summary, `checkRealmFileSize()` is a utility function that provides a convenient way to check the size of the Realm database file on the device. This can be useful for monitoring the database size, implementing database size limits, or performing maintenance tasks based on the database file size.
+
   
   
