@@ -1,22 +1,20 @@
 
   
   
+  
+  
 ---
 # CoreDataLoader SwiftStarterApp/Data Management/Core Data/Logic/CoreDataLoader.swift
 ## Imported Code Object
-In the provided code snippet, `CoreDataLoader` is a class responsible for loading and populating data into the Core Data store. It serves as a utility class to initialize the application's data when the Core Data store is empty.
+`CoreDataLoader` is a Swift class that contains static functions to load and populate data into the Core Data database. Here's what each part of the code does:
 
-Here's a breakdown of the class:
+1. `LoadData()` function: This function checks if there are any existing records in the "Leaderboard" entity using `CoreDataManager_Leaderboard.shared.Count()`. If there are no records, it calls `BuildUsers()` and `BuildLeaderboard()` functions to populate the database with sample data.
 
-1. `LoadData()` is a static function that checks if there are any existing records in the Core Data store for the "Leaderboard" entity. If the store is empty, it calls two helper functions: `BuildUsers()` and `BuildLeaderboard()`.
+2. `BuildUsers()` function: This function creates sample "Users" entities in the Core Data database. It creates five user objects with predefined usernames and passwords, assigns a new UUID to each user, and saves the changes to the database using `CoreDataManager.Commit()`.
 
-2. `BuildUsers()` is a private static function that creates and persists five sample "Users" entities in the Core Data store. Each user has a unique UUID, username, and password.
+3. `BuildLeaderboard()` function: This function creates sample "Leaderboard" entities in the Core Data database. It iterates over the existing "Users" entities using `CoreDataManager_Users.shared.items`. For each user, it creates a new "Leaderboard" entity with a random score between 0 and 99, associates it with the user's UUID, and saves the changes to the database using `CoreDataManager.Commit()`.
 
-3. `BuildLeaderboard()` is another private static function that creates and persists sample "Leaderboard" entities in the Core Data store. It iterates through the existing "Users" entities, generates a random score for each user, and creates a corresponding "Leaderboard" entity with the user's UUID and the random score.
-
-4. The `CoreDataManager` and `PersistenceController` classes are likely utility classes used for managing the Core Data context and saving changes to the persistent store, respectively.
-
-In summary, `CoreDataLoader` is a helper class that ensures the Core Data store is populated with some initial data when the app starts for the first time or when the store is empty. It creates sample user records and corresponding leaderboard entries with random scores. This class can be useful for testing purposes or providing a starting point for the app's data when there is no existing data in the Core Data store.
+In summary, `CoreDataLoader` is a utility class that helps populate the Core Data database with sample data when there are no existing records. It creates a set of predefined users and associates random scores with each user in the "Leaderboard" entity. This class is likely used for testing or demonstration purposes, as it provides a consistent set of sample data for the application to work with.
 
   
   
