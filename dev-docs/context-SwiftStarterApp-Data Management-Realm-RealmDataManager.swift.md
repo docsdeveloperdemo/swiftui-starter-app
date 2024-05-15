@@ -25,24 +25,21 @@ Here's a concise explanation of what the `getKey()` function does:
 In summary, the `getKey()` function ensures that your application has a secure encryption key stored in the device's Keychain. If a key already exists, it retrieves the existing key; otherwise, it generates a new random key and stores it in the Keychain for future use.
 # getRealmConfig SwiftStarterApp/Data Management/Realm/RealmDataManager.swift
 ## Imported Code Object
-The `getRealmConfig()` function in the provided code snippet is responsible for creating and returning a `Realm.Configuration` instance, which is required to initialize a Realm database.
+The `getRealmConfig()` function in the provided code snippet is responsible for creating and returning a `Realm.Configuration` object, which is used to configure the Realm database instance.
 
-Here's a breakdown of what's happening:
+Here's a breakdown of what the function does:
 
-1. `private static func getRealmConfig() -> Realm.Configuration` is a private static function that returns a `Realm.Configuration` instance.
+1. `var config = Realm.Configuration()` creates an instance of `Realm.Configuration` with default settings.
 
-2. `var config = Realm.Configuration()` creates an empty `Realm.Configuration` instance.
+2. `config = try Realm.Configuration(encryptionKey: getKey())` attempts to create a new `Realm.Configuration` object with an encryption key. The `getKey()` function is likely a custom function that retrieves or generates the encryption key. If the encryption key is successfully set, the `config` variable is updated with the new configuration.
 
-3. The `do-catch` block attempts to create a new `Realm.Configuration` instance with encryption enabled, using the key obtained from the `getKey()` function (which is not shown in the provided code).
+3. `catch let error` block handles any errors that occur during the creation of the `Realm.Configuration` object with the encryption key. If an error occurs, it is printed using `print(error)`.
 
-   - `config = try Realm.Configuration(encryptionKey: getKey())` creates a new `Realm.Configuration` instance with encryption enabled, using the key returned by `getKey()`.
-   - If an error occurs during this process, it will be caught by the `catch` block and printed to the console.
+4. `return config` returns the `Realm.Configuration` object, either with the default settings or with the encryption key applied (if no error occurred).
 
-4. Finally, the function returns the `config` instance, which can be used to initialize a Realm database.
+The `Realm.Configuration` object is used to configure various aspects of the Realm database, such as the file path, encryption settings, migration settings, and more. In this particular code snippet, the focus is on setting up encryption for the Realm database using an encryption key.
 
-In summary, `getRealmConfig()` is a utility function that generates a `Realm.Configuration` instance, potentially with encryption enabled (depending on the result of `getKey()`). This configuration can then be used to create and open a Realm database with the specified settings.
-
----
+By calling `getRealmConfig()` and passing the returned `Realm.Configuration` object when creating a new Realm instance, the application can ensure that the Realm database is properly configured, potentially with encryption enabled based on the provided encryption key.
 # getRealm SwiftStarterApp/Data Management/Realm/RealmDataManager.swift
 ## Imported Code Object
 The `getRealm()` function in the provided code snippet is a static method that returns an optional `Realm` instance, which is a core component of the Realm database. The Realm database is a popular open-source, object-oriented database management system designed for mobile applications.
