@@ -17,7 +17,7 @@ public class RealmManager {
   
   // Retrieve the existing encryption key for the app if it exists or create a new one
   private static func getKey() throws -> Data {
-    // Identifier for our keychain entry - should be unique for your application
+    // Identifier for our keychain entry - should be unique for your application...
     let keychainIdentifier = "io.Realm.EncryptionExampleKey"
     let keychainIdentifierData = keychainIdentifier.data(using: String.Encoding.utf8, allowLossyConversion: false)!
     // First check in the keychain for an existing key
