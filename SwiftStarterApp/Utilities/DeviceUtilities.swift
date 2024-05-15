@@ -12,11 +12,11 @@ enum DeviceType : String {
     case ipad
     case iphone
     case mac
-  
+  //other stuff
 }
 
 class DeviceUtilities {
-  
+  //utilities
   public static func deviceType() -> DeviceType {
 #if os(iOS)
     if UIDevice.isIPad {
