@@ -12,7 +12,7 @@ import CoreData
 // The CoreDataLoader loads several
 // Core Data entries if they do not exist
 public class CoreDataLoader {
-  
+  //this is a test
   public static func LoadData() {
     if CoreDataManager_Leaderboard.shared.Count() == 0 {
       BuildUsers()
