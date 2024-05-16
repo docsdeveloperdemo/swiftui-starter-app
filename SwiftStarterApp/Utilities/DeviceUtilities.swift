@@ -16,7 +16,7 @@ enum DeviceType : String {
 }
 
 class DeviceUtilities {
-  //utilities
+  //utilities cool things
   public static func deviceType() -> DeviceType {
 #if os(iOS)
     if UIDevice.isIPad {
