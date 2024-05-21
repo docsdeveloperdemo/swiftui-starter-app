@@ -11,7 +11,7 @@ import SwiftUI
 @main
 struct SwiftStarterApp: App {
   let persistenceController = PersistenceController.shared.viewContext
-    //very neat
+    //very neato
     var body: some Scene {
         WindowGroup {
           NavigationSplitHomeView()
