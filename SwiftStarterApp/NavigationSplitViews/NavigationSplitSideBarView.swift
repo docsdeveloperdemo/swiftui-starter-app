@@ -45,7 +45,7 @@ struct NavigationSplitSideBarView: View {
   var body: some View {
     VStack {
       List(selection: $route) {
-        
+        //add some stuff here
         Section("Data and Storage") {
           ForEach(Array(dataFolders.keys.sorted()), id: \.self) { folder in
             NavigationLink(value: NavigationSplitRoute(title: folder,
